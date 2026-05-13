@@ -1281,7 +1281,8 @@ static int proxy_msrpc_handler(request_rec *r, proxy_worker *worker,
     if ((r->method_number != msrpc_methods[MSRPC_M_DATA_IN]) &&
         (r->method_number != msrpc_methods[MSRPC_M_DATA_OUT]) &&
         (r->method_number != msrpc_methods[MSRPC_M_RDG_IN]) &&
-        (r->method_number != msrpc_methods[MSRPC_M_RDG_OUT])) {
+        (r->method_number != msrpc_methods[MSRPC_M_RDG_OUT]) &&
+        (r->method_number != M_POST))) {
         ap_log_rerror(APLOG_MARK, APLOG_DEBUG, 0, r, "declining due to bad method: %s", r->method);
         return DECLINED;
     }
